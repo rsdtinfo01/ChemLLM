@@ -1,0 +1,19 @@
+# Clone the project
+git clone https://github.com/<username>/sentiment-analysis-app.git
+
+# Setup Python environment
+cd sentiment-analysis-app
+python -m venv venv venv\Scripts\activate pip install -r requirements.txt
+
+# Train the model
+python model/cnn_model.py
+
+# Run the Flask app
+python app/main.py
+
+# Run tests
+pytest tests/
+
+# Dockerize and run
+docker build -t sentiment-analysis-app .
+docker run -d -p 5000:5000 sentiment-analysis-app
